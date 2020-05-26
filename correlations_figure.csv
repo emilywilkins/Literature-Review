@@ -1,0 +1,23 @@
+﻿Correlation,Platform_Type,Setting,Full setting,Spatial scale,Temporal scale,Amount of data,PUD,Full correlation,Citation,In figure 3?
+0.62,Flickr (r),variety,Over 800 tourism sites globally,Whole unit,Mean annual, 7 years ,yes,R2 = 0.386,"(Wood, Guerry, Silver, & Lacayo, 2013)",yes
+0.47,Flickr (r),state,State parks in Vermont (U.S.),Whole park,"8-year sum, only summer months",8 years ,yes,R2= 0.22,"(Sonter, Watson, Wood, & Ricketts, 2016)",yes
+0.58,Flickr (r),urban,Urban parks in New York City (U.S.),Whole park; excluded parks with < 3 daily observations ,"2-year sum, only summer months",Flickr: 10 years,yes,Flickr: r = 0.58,"(Hamstead, Fisher, Ilieva, Wood, McPhearson, & Kremer, 2018)",yes
+0.82,Flickr (r),urban,"Urban parks in Twin Cities, MN (U.S.)",Whole park,Mean annual,Flickr: 10 years,yes,Flickr R2 = 0.67,"(Donahue, Keeler, Wood, Fisher, Hamstead, & McPhearson, 2018)",yes
+0.8,Flickr (r),national,All U.S. National Forests,Whole forest,Mean annual,11 years ,yes,"r = 0.80 
+(varies by region)","(Fischer et al, 2018)",yes
+0.84,Flickr (r),national,A National Park in Spain,Whole park,"Monthly, but aggregated 7 years","7 years
+",yes,r = 0.84,"(Barros, Moya-Gomez, & Gutierrez, 2019)",yes
+0.52,Flickr (r),variety,National and State Parks in the northern forest region (U.S.),Whole park,Summers,5 years,no,R2 = 0.272,"(Kuehn et al., 2019)",yes
+0.8,Flickr (r),variety,436 protected areas globally,Whole park,Mean annual,9 years,yes,R2 = 0.64; r = 0.80,"(Levin & Crandall, 2015)",yes
+0.97,Flickr (r),national,16 national parks across Germany,Whole park,Mean annual,14 years,yes,Flickr: r = 0.97,"(Sinclair, Mayer, Woltering, & Ghermandi, 2020)",yes
+0.77,Flickr (Rs),national,National Parks in South Africa,Whole park,Annual,1 year ,yes,Flickr: Rs = 0.77 ,"(Tenkanen et al., 2017)",yes
+0.63,Flickr (Rs),national,National Parks in Finland,Whole park,Annual,1 year ,yes,Flickr: Rs =  0.63,"(Tenkanen et al., 2017)",yes
+0.36,Flickr (Rs),variety,All protected areas in Victoria (Australia),Whole park,Mean annual,9 years,no,Rs = 0.364; Rs = 0.465 if the parks with no data are not included. ,"(Levin, Lechner, & Brown 2017)",yes
+0.25,Flickr (Rs),national,A National Park in Argentina,Whole unit,Not given,"5 years, only peak season (5 months)",no,Rs = 0.249,"(Walden-Schreiner, Rossi, Barros, Pickering, & Leung, 2018)",yes
+0.74,Flickr (Rs),variety,Protected areas in a Chilean biodiversity hotspot,Whole unit,Mean annual,8 years ,yes,Rs = 0.74,"(Martinez-Harms et al., 2018)",yes
+0.76,Twitter (r),urban,Urban parks in New York City (U.S.),Whole park; excluded parks with < 3 daily observations ,"2-year sum, only summer months",Twitter: 3 years,yes,Twitter: r = 0.76,"(Hamstead, Fisher, Ilieva, Wood, McPhearson, & Kremer, 2018)",yes
+0.8,Twitter (r),urban,"Urban parks in Twin Cities, MN (U.S.)",Whole park,Mean annual,Twitter: 3 years,yes,Twitter R2 = 0.64,"(Donahue, Keeler, Wood, Fisher, Hamstead, & McPhearson, 2018)",yes
+0.59,Twitter (Rs),national,National Parks in South Africa,Whole park,Annual,1 year ,yes,Twitter: Rs = 0.59,"(Tenkanen et al., 2017)",yes
+0.81,Twitter (Rs),national,National Parks in Finland,Whole park,Annual,1 year ,yes,Twitter: Rs = 0.81,"(Tenkanen et al., 2017)",yes
+0.69,Instagram (Rs),national,National Parks in South Africa,Whole park,Annual,1 year ,yes,Instagram: Rs = 0.69,"(Tenkanen et al., 2017)",yes
+0.83,Instagram (Rs),national,National Parks in Finland,Whole park,Annual,1 year ,yes,Instagram: Rs = 0.83,"(Tenkanen et al., 2017)",yes
