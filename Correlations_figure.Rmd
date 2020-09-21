@@ -1,7 +1,7 @@
 ---
 title: "Correlations plots"
-author: "Emily Wilkins"
-date: "2/3/2020"
+author: "Emily J. Wilkins"
+date: "9/21/2020"
 output: html_document
 ---
 
@@ -12,23 +12,86 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(tidyverse)
+library(ggrepel)
 
-all_corrs <- read.csv("~/Desktop/correlations_figure.csv")
+# Read in the spreadsheet
+all_corrs <- read.csv("~/Desktop/Literature-Review-master/correlations_figure_updated.csv")
+
+# This reorders the factors how we want them in our legends
+all_corrs$Setting <- factor(all_corrs$Setting, levels = c("national", "state", "urban", "variety", "other"))
+all_corrs$PUD <- factor(all_corrs$PUD, levels = c("yes", "no", "N/A"))
 ```
 
 ```{r}
-cor_scatterplot <- ggplot(all_corrs, aes(x = Platform_Type, y = Correlation, shape = PUD, color = Setting)) +
-  geom_point(size = 5) +
+# This seperates the databases for making the three figure panes
+all_corrs_mp <- all_corrs %>% dplyr::filter(Multiple.parks == "y")
+all_corrs_temp <- all_corrs %>% dplyr::filter(Temporal == "y")
+all_corrs_sub <- all_corrs %>% dplyr::filter(Subregions == "y")
+
+colors <- c("indianred2", "green3", "turquoise2", "purple2", "orange2")
+
+######### Figure for whole unit, comparing between parks
+cor_scatterplot1 <- ggplot(all_corrs_mp, aes(x = Platform_Type, y = Correlation, shape = PUD, color = Setting, fill = Setting)) +
+  geom_point(size = 5, alpha = 1.0, stroke = 1) +
   ylim(0.00, 1.00) + ylab("Correlations: Pearson's (r) or Spearman's Rank (Rs)") + xlab("") +
   coord_flip() +
   geom_hline(yintercept=0.00, size = 0.3) +
   theme_bw() +
   theme(panel.border = element_blank(), text = element_text(size = 18), axis.line.x = element_line(color = "black")) +
   scale_x_discrete(limits = c("Instagram (Rs)", "Twitter (Rs)", "Twitter (r)", "Flickr (Rs)", "Flickr (r)")) +
-  scale_shape_manual(values = c(15, 16)) +
-  labs(color = "Park Setting", shape = "User-Days")
+  scale_shape_manual(values = c(21, 22, 23), drop = FALSE) + # 15, 16
+  scale_fill_manual(values = colors, drop = FALSE) +
+  scale_color_manual(values = colors, drop = FALSE) +
+  labs(color = "Park Setting", shape = "User-days") +
+  geom_text_repel(aes(label = Sample.size), point.padding = NA, hjust = 0.5, vjust = 1.9, label.size = 4) +
+  guides(fill = FALSE)
+  # geom_text(aes(label = Sample.size), hjust = 0.5, vjust = 1.8, size = 4)
+
+cor_scatterplot1 # Save this figure as an image, with a width of 883 and height of 300
+
+########## Figure for whole unit, temporal comparison
+cor_scatterplot2 <- ggplot(all_corrs_temp, aes(x = Platform_Type, y = Correlation, shape = PUD, color = Setting, fill = Setting)) +
+  geom_point(size = 5, alpha = 1.0, stroke = 1) +
+  ylim(0.00, 1.00) + ylab("Correlations: Pearson's (r) or Spearman's Rank (Rs)") + xlab("") +
+  coord_flip() +
+  geom_hline(yintercept=0.00, size = 0.3) +
+  theme_bw() +
+  theme(panel.border = element_blank(), text = element_text(size = 18), axis.line.x = element_line(color = "black")) +
+  scale_x_discrete(limits = c("Flickr (Rs)", "Flickr (r)", "Instagram (Rs)")) +
+  scale_shape_manual(values = c(21, 22, 23), drop = FALSE) + # 15, 16
+  scale_fill_manual(values = colors, drop = FALSE) +
+  scale_color_manual(values = colors, drop = FALSE) +
+  labs(color = "Park Setting", shape = "User-days") +
+  geom_text_repel(aes(label = Sample.size), point.padding = NA, hjust = 0.5, vjust = 1.9, label.size = 4) +
+  guides(fill = FALSE)
+  # geom_text(aes(label = Sample.size), hjust = 0.5, vjust = 1.8, size = 4)
+
+cor_scatterplot2 # Save this figure as an image, with a width of 883 and height of 200
+
+######### Figure for trails/subregions
+cor_scatterplot3 <- ggplot(all_corrs_sub, aes(x = Platform_Type, y = Correlation, shape = PUD, color = Setting, fill = Setting)) +
+  geom_point(size = 5, alpha = 1.0, stroke = 1) +
+  ylim(0.00, 1.00) + ylab("Correlations: Pearson's (r) or Spearman's Rank (Rs)") + xlab("") +
+  coord_flip() +
+  geom_hline(yintercept=0.00, size = 0.3) +
+  theme_bw() +
+  theme(panel.border = element_blank(), text = element_text(size = 18), axis.line.x = element_line(color = "black")) +
+  scale_x_discrete(limits = c("MapMyFit. (r)", "Instagram (Rs)", "Flickr (r)")) +
+  scale_shape_manual(values = c(21, 22, 23), drop = FALSE) + # 15, 16
+  scale_fill_manual(values = colors, drop = FALSE) +
+  scale_color_manual(values = colors, drop = FALSE) +
+  labs(color = "Park Setting", shape = "User-days") +
+  geom_text_repel(aes(label = Sample.size), point.padding = NA, hjust = 0.5, vjust = 1.9, label.size = 4) +
+  guides(fill = FALSE)
+  # geom_text(aes(label = Sample.size), hjust = 0.5, vjust = 1.8, size = 4)
+
+cor_scatterplot3 # Save this figure as an image, with a width of 883 and height of 200
 
 
-cor_scatterplot
+
+# (I combined the 3 figures in a powerpoint file)
+
 ```
+
+
 
